@@ -3,6 +3,7 @@ package mtscheme
 import mtscheme.BuiltIn._
 import mtscheme.Interpreter.eval
 import mtscheme.Parser.parse
+import scala.io.StdIn.readLine
 
 object repl extends App {
 
