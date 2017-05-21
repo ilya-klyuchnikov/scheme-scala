@@ -153,13 +153,11 @@ class InterpreterTest extends FunSuite {
       Value(Num(4))))
     testEListG("(cons (cons 1 2) 3)")          (List (EList(List(Value(Num(1)), Value(Num(2)))),
       Value(Num(3))))
-    testEListG("(cons \"kalle\" 2)")           (List (Value(Name("kalle")), Value(Num(2))))
   }
 
   test("list") {
     testEListG("(list 1 2)")              (List(Value(Num(1)), Value(Num(2))))
     testEListG("(list 5 (list 1 1) 2)")   (List(Value(Num(5)), EList(List(Value(Num(1)), Value(Num(1)))), Value(Num(2))))
-    testEListG("(list 1 \"kalle\")")      (List(Value(Num(1)), Value(Name("kalle"))))
     testEListG("(list)")                  (List())
   }
 
