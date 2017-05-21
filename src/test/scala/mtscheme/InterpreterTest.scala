@@ -53,7 +53,6 @@ class InterpreterTest extends FunSuite {
     testNumberG("(+ 1 2)")        (1+2)
     testNumberG("(+ 1 (+ 2 3))")  (1+2+3)
     testNumberG("(+ 1)")          (1)
-    testNumberG("(+ 1 1 1 0.14)") (1+1+1+0.14)
   }
 
   test("sub") {
@@ -64,20 +63,11 @@ class InterpreterTest extends FunSuite {
   }
 
   test("mul") {
-    testNumberG("(* 2 3.14)")     (2.0*3.14)
     testNumberG("(+ 1 (* 2 3))")  (1+2*3)
     testNumberG("(* 1)")          (1)
     testNumberG("(* 2 1 2 2)")    (2*1*2*2)
   }
-
-  test("div") {
-    testNumberG("(/ 9 3)")        (9/3)
-    testNumberG("(+ 1 (/ 2 3))")  (1.0+BigDecimal(2.0)/3.0)
-    testNumberG("(/ 1)")          (1)
-    // testNumberG("(/ 2)")          (1.0/2.0)      // TODO; special case not handled correctly
-    testNumberG("(/ 1 2 3)")      (1.0/BigDecimal(2.0)/3.0)
-  }
-
+  
   test("eq") {
     testBoolG("(= 2 2)")          (2==2)
     testBoolG("(= 2 (+ 1 1))")    (2==(1+1))

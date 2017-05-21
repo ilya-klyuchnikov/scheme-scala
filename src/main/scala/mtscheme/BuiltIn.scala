@@ -4,7 +4,7 @@ import mtscheme.Interpreter._
 
 object BuiltIn {
 
-  def aritFun(op: ((BigDecimal, BigDecimal) => BigDecimal))
+  def aritFun(op: ((Int, Int) => Int))
              (env: Env, comb: List[ExprT]) = {
     def error = throw new IllegalArgumentException("arithmetic error")
     comb.map(e => eval(env, e)._2) match {

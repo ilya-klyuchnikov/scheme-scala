@@ -4,7 +4,7 @@ package mtscheme
 // Case classes
 
 sealed trait ValueT
-case class Num(v: BigDecimal) extends ValueT
+case class Num(v: Int) extends ValueT
 case class Bool(v: Boolean) extends ValueT
 case class Name(v: String) extends ValueT
 

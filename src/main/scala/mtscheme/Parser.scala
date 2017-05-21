@@ -4,7 +4,7 @@ import scala.util.parsing.combinator._
 
 object Parser extends JavaTokenParsers {
 
-  val value: Parser[ValueT] = floatingPointNumber ^^ (x => Num(BigDecimal(x)))
+  val value: Parser[ValueT] = wholeNumber ^^ (x => Num(Integer.parseInt(x)))
 
   val expression: Parser[ExprT] = value ^^ (x => Value(x)) |
                                   """[^()\s]+""".r ^^ (x => Symbol(x)) |
